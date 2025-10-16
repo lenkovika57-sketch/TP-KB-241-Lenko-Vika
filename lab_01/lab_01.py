@@ -42,32 +42,37 @@ def deleteElement():
         print("Student deleted.\n")
 
 def updateElement():
-    name = input("Enter the name of the student to update: ")
-    found = None
-    for item in students:
-        if name.lower() == item["name"].lower():
-            found = item
+    name = input("Enter the name of the student to update: ").strip()
+    found_index = -1
+
+    for i in range(len(students)):
+        if students[i]["name"].lower() == name.lower():
+            found_index = i
             break
 
-    if not found:
+    if found_index == -1:
         print("Student not found.\n")
         return
 
+    found = students[found_index]
     print(f"Editing {found['name']}...")
-    new_name = input(f"Enter new name (press Enter to keep '{found['name']}'): ") or found['name']
-    new_phone = input(f"Enter new phone (press Enter to keep '{found['phone']}'): ") or found['phone']
-    new_email = input(f"Enter new email (press Enter to keep '{found['email']}'): ") or found['email']
-    new_address = input(f"Enter new address (press Enter to keep '{found['address']}'): ") or found['address']
 
-    found.update({
+    new_name = input(f"Enter new name (press Enter to keep '{found['name']}'): ").strip() or found['name']
+    new_phone = input(f"Enter new phone (press Enter to keep '{found['phone']}'): ").strip() or found['phone']
+    new_email = input(f"Enter new email (press Enter to keep '{found['email']}'): ").strip() or found['email']
+    new_address = input(f"Enter new address (press Enter to keep '{found['address']}'): ").strip() or found['address']
+
+    del students[found_index]
+
+    new_item = {
         "name": new_name,
         "phone": new_phone,
         "email": new_email,
         "address": new_address
-    })
+    }
+    students.insert(found_index, new_item)
 
-    students.sort(key=lambda x: x["name"].lower())
-    print("Student information updated.\n")
+    print("Student information updated (without sorting).\n")
 
 def main():
     while True:
