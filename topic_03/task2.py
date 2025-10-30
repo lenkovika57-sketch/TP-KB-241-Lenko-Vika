@@ -1,28 +1,28 @@
-print("\nТестування функцій списку")
+print("\nТестування функцій списків")
 
-nums = [1, 2, 3, 4, 5]
-print("Початковий список:", nums)
+list = [9, 1, 2, 8, 10, 3]
+print("Початковий список:", list)
 
-nums.append(6)
-print("append(6):", nums)
+list.append(4)
+print("append(4):", list)
 
-nums.extend([7, 8])
-print("extend([7, 8]):", nums)
+list.extend([5, 6])
+print("extend([5, 6]):", list)
 
-nums.insert(3, 20)
-print("insert(3, 20):", nums)
+list.insert(2, 99)
+print("insert(2, 99):", list)
 
-nums.remove(20)
-print("remove(20):", nums)
+list.remove(99)
+print("remove(99):", list)
 
-nums_copy = nums.copy()
-print("copy():", nums_copy)
+list.sort()
+print("sort():", list)
 
-nums.reverse()
-print("reverse():", nums)
+list.reverse()
+print("reverse():", list)
 
-nums.sort()
-print("sort():", nums)
+copy_list = list.copy()
+print("copy():", copy_list)
 
-nums.clear()
-print("clear():", nums)
+list.clear()
+print("clear():", list)
