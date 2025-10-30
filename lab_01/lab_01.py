@@ -42,19 +42,19 @@ def deleteElement():
         print("Student deleted.\n")
 
 def updateElement():
+    global students
     name = input("Enter the name of the student to update: ").strip()
-    found_index = -1
+    found = None
 
-    for i in range(len(students)):
-        if students[i]["name"].lower() == name.lower():
-            found_index = i
+    for item in students:
+        if item["name"].lower() == name.lower():
+            found = item
             break
 
-    if found_index == -1:
+    if not found:
         print("Student not found.\n")
         return
 
-    found = students[found_index]
     print(f"Editing {found['name']}...")
 
     new_name = input(f"Enter new name (press Enter to keep '{found['name']}'): ").strip() or found['name']
@@ -62,7 +62,17 @@ def updateElement():
     new_email = input(f"Enter new email (press Enter to keep '{found['email']}'): ").strip() or found['email']
     new_address = input(f"Enter new address (press Enter to keep '{found['address']}'): ").strip() or found['address']
 
-    del students[found_index]
+    new_list = []
+    for item in students:
+        if item != found:
+            new_list.append(item)
+
+    insertPosition = 0
+    for item in new_list:
+        if new_name.lower() > item["name"].lower():
+            insertPosition += 1
+        else:
+            break
 
     new_item = {
         "name": new_name,
@@ -70,9 +80,11 @@ def updateElement():
         "email": new_email,
         "address": new_address
     }
-    students.insert(found_index, new_item)
+    new_list.insert(insertPosition, new_item)
 
-    print("Student information updated (without sorting).\n")
+    students = new_list
+
+    print("Student information updated and list remains sorted.\n")
 
 def main():
     while True:
