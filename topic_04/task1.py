@@ -30,7 +30,7 @@ def calculator():
         operation = input("\nВведіть операцію: ")
 
         if operation.lower() == "exit":
-            print(" Завершено.")
+            print("Завершено.")
             break
 
         if operation not in ['+', '-', '*', '/']:
