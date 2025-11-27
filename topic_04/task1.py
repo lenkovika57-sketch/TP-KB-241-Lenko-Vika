@@ -1,5 +1,4 @@
 def get_number(prompt):
-    "Функція запиту числа з обробкою винятків."
     while True:
         try:
             value = float(input(prompt))
@@ -17,7 +16,6 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
-    "Функція ділення з обробкою ділення на нуль."
     try:
         return a / b
     except ZeroDivisionError:
