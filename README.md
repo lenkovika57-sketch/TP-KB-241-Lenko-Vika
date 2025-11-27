@@ -14,3 +14,15 @@ add solution for lab_01.py
 # 30.10.2025
 add folder topic_03
 add solution for task1, task2, task3 and task4
+# TP-KB-241-Lenko-Vika
+# 27.11.2025
+add folder topic_04
+add solution for task1
+# TP-KB-241-Lenko-Vika
+# 27.11.2025
+add folder topic_05
+add solution for task1, task2, calc.py, functions.py, operations.py
+# TP-KB-241-Lenko-Vika
+# 27.11.2025
+add folder topic_06
+add solution for task1, calc.py, functions.py, operations.py
